@@ -13,4 +13,4 @@ fi
 
 DEVICENAME=$1
 
-/usr/libexec/authopen networksetup -setsocksfirewallproxystate $DEVICENAME off
+networksetup -setsocksfirewallproxystate $DEVICENAME off
