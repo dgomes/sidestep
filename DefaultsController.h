@@ -47,4 +47,7 @@
 - (void)setSelectedVPNService:(NSString *)selection;
 - (NSString *)selectedVPNService;
 
+- (void)setUserNotificationSetting :(BOOL)value;
+- (BOOL)getUserNotificationSetting;
+
 @end
