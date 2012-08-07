@@ -121,18 +121,6 @@
 	
 }
 
-- (void)setUserNotificationSetting :(BOOL)value
-{
-  [defaults setBool:value forKey:@"sidestep_UserNotificationSetting"];
-	[defaults synchronize];
-}
-
-- (BOOL)getUserNotificationSetting
-{
-  return [defaults boolForKey:@"sidestep_UserNotificationSetting"];
-}
-
-
 /*
  *	Preferences
  *******************************************************************************

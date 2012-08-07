@@ -195,7 +195,6 @@ NSInteger GrowlSpam_TestConnection					= 0;
 		[self setRunOnLogin:TRUE];
 		
 		[defaultsController setGrowlSetting:TRUE];
-    [defaultsController setUserNotificationSetting:TRUE];
 		[defaultsController setCompressSSHConnection:FALSE];
 		
 		// Show welcome window
@@ -214,12 +213,6 @@ NSInteger GrowlSpam_TestConnection					= 0;
 	// Enable Growl if preference is not found (user updated from previous version / has already completed 1st run)
     if (![defaultsController getGrowlSetting]) {
 		[defaultsController setGrowlSetting:TRUE];
-    }
-  
-  // Enable UserNotification Center
-    if (![defaultsController getUserNotificationSetting])
-    {
-      [defaultsController setUserNotificationSetting:TRUE];
     }
 	
 	// Set default local port number if not already set
