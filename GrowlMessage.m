@@ -9,6 +9,10 @@
 #import "GrowlMessage.h"
 #import <Growl/Growl.h>
 
+@interface GrowlMessage ()
+- (void)sendUserNotificationMessage:(NSString*)message;
+@end
+
 @implementation GrowlMessage
 
 
@@ -43,6 +47,24 @@
 								isSticky: NO
 								clickContext: nil];
 	}
+  
+  if ([setting boolForKey:@"sidestep_UserNotificationSetting"] == TRUE)
+  {
+    [self sendUserNotificationMessage:sendMessage];
+  }
 }
 
+- (void)sendUserNotificationMessage:(NSString*)message
+{
+#if defined(MAC_OS_X_VERSION_10_8) 
+  NSUserNotification *notification = [[NSUserNotification alloc] init];
+  [notification setTitle:@"Sidestep"];
+  [notification setInformativeText:message];
+  [notification setDeliveryDate:[NSDate dateWithTimeInterval:5 sinceDate:[NSDate date]]];
+  [notification setSoundName:NSUserNotificationDefaultSoundName];
+  
+  NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
+  [center scheduleNotification:notification];
+#endif
+}
 @end
