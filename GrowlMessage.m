@@ -60,10 +60,10 @@
   NSUserNotification *notification = [[NSUserNotification alloc] init];
   [notification setTitle:@"Sidestep"];
   [notification setInformativeText:message];
-  [notification setDeliveryDate:[NSDate dateWithTimeInterval:5 sinceDate:[NSDate date]]];
   [notification setSoundName:NSUserNotificationDefaultSoundName];
-  
+      
   NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
+  [center removeAllDeliveredNotifications];
   [center scheduleNotification:notification];
 #endif
 }
